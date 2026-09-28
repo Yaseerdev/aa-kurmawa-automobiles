@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #090b0d;
+  --paper: #f4f2ee;
+  --muted: #9b9b98;
+  --line: rgba(255,255,255,.14);
+  --accent: #a9151d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+::selection { background: #fff; color: #090b0d; }
+
+.display {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -.045em;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #a8a8a4;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+.hero-vignette {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.34) 48%, rgba(0,0,0,.1) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.68) 0%, transparent 40%);
+}
+
+.reveal-line { overflow: hidden; }
