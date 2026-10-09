@@ -13,10 +13,19 @@ export type SiteSettings = {
   tiktok: string | null;
   opening_hours: string | null;
   appointment_note: string | null;
+
   homepage_eyebrow: string | null;
   homepage_title: string | null;
   homepage_description: string | null;
   homepage_hero_image: string | null;
+  homepage_showroom_image: string | null;
+
+  chairman_name: string | null;
+  chairman_image: string | null;
+  chairman_bio: string | null;
+
+  about_story_image: string | null;
+
   updated_at: string;
 };
 
@@ -40,6 +49,11 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
       homepage_title,
       homepage_description,
       homepage_hero_image,
+      homepage_showroom_image,
+      chairman_name,
+      chairman_image,
+      chairman_bio,
+      about_story_image,
       updated_at
     `)
     .limit(1)

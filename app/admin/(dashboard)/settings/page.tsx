@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 import {
+  BookOpen,
   Building2,
   Clock3,
   Globe2,
@@ -43,7 +44,7 @@ type SiteSettings = {
   chairman_image: string | null;
 
   homepage_showroom_image: string | null;
-
+  about_story_image: string | null;
 };
 
 async function getSettings(): Promise<SiteSettings | null> {
@@ -71,7 +72,8 @@ async function getSettings(): Promise<SiteSettings | null> {
       chairman_name,
       chairman_bio,
       chairman_image,
-      homepage_showroom_image
+      homepage_showroom_image,
+      about_story_image
     `)
     .limit(1)
     .maybeSingle();
@@ -134,7 +136,10 @@ async function updateSettings(formData: FormData) {
       getValue("chairman_image") || null,
 
     homepage_showroom_image:
-      getValue("homepage_showroom_image") || null,
+     getValue("homepage_showroom_image") || null,
+
+    about_story_image:
+     getValue("about_story_image") || null,
 
     updated_at: new Date().toISOString(),
   };
@@ -185,6 +190,7 @@ async function updateSettings(formData: FormData) {
   }
 
   revalidatePath("/");
+  revalidatePath("/about");
   revalidatePath("/vehicles");
   revalidatePath("/admin");
   revalidatePath("/admin/settings");
@@ -669,6 +675,38 @@ export default async function SettingsPage({
               />
             </div>
           </section>
+
+
+
+                {/* STORY IMAGE */}
+
+            <section className="border border-black/10 bg-white/20">
+              <SectionHeader
+                icon={
+                  <BookOpen
+                    size={16}
+                    strokeWidth={1.2}
+                  />
+                }
+                eyebrow="08 / Story"
+                title="Story imagery."
+                description="Choose the editorial image displayed in the About page story section."
+              />
+
+              <div className="border-t border-black/10">
+                <SiteImageUploader
+                  label="About story image"
+                  description="Upload a strong image that represents the journey, identity or story of AA Kurmawa Automobiles."
+                  fieldName="about_story_image"
+                  initialUrl={
+                    settings.about_story_image ?? ""
+                  }
+                  filePrefix="about-story"
+                  aspectClass="aspect-[21/9]"
+                />
+              </div>
+            </section>
+
 
 
           {/* LIVE PREVIEW */}

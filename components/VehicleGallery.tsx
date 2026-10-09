@@ -7,7 +7,7 @@ import {
   Maximize2,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type VehicleGalleryProps = {
   images: string[];
@@ -22,6 +22,40 @@ export function VehicleGallery({
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  const touchStartX = useRef<number | null>(null);
+const touchStartY = useRef<number | null>(null);
+
+function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+  const touch = event.touches[0];
+
+  touchStartX.current = touch.clientX;
+  touchStartY.current = touch.clientY;
+}
+
+function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
+  if (touchStartX.current === null || touchStartY.current === null) {
+    return;
+  }
+
+  const touch = event.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX.current;
+  const deltaY = touch.clientY - touchStartY.current;
+
+  touchStartX.current = null;
+  touchStartY.current = null;
+
+  // Ignore taps, short movements, and primarily vertical gestures.
+  if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY) * 1.2) {
+    return;
+  }
+
+  if (deltaX < 0) {
+    showNext();
+  } else {
+    showPrevious();
+  }
+}
 
   if (galleryImages.length === 0) {
     return null;
@@ -235,10 +269,12 @@ export function VehicleGallery({
       {/* Fullscreen Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black p-4 md:p-10"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-black p-4 md:p-10"
           role="dialog"
           aria-modal="true"
           aria-label={`${vehicleName} image viewer`}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Close */}
           <button

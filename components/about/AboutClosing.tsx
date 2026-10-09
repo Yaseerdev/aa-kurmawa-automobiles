@@ -6,19 +6,19 @@ export function AboutClosing() {
   return (
     <section
       id="closing"
-      className="bg-[#f2f0eb] px-5 py-32 text-black md:px-10 md:py-40 lg:px-14 lg:py-52"
+      className="bg-[#f2f0eb] px-5 pb-32 pt-16 text-black md:px-10 md:pb-40 md:pt-20 lg:px-14 lg:pb-52 lg:pt-24"
     >
       <div className="mx-auto max-w-[1600px]">
         <Reveal>
-          <div className="grid gap-16 lg:grid-cols-[0.32fr_0.68fr] lg:gap-20">
+          <div className="grid gap-16 lg:grid-cols-[0.32fr_.68fr] lg:gap-20">
             <div>
-              <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-black/35">
-                06 — The journey continues
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-black">
+                05 — The journey continues
               </p>
 
               <div className="mt-7 flex items-center gap-3">
-                <span className="h-px w-8 bg-black/15" />
-                <span className="text-[8px] uppercase tracking-[0.28em] text-black/30">
+                <span className="h-px w-12 bg-black" />
+                <span className="text-[12px] uppercase tracking-[0.28em] text-black">
                   AA Kurmawa Automobiles
                 </span>
               </div>
@@ -58,11 +58,11 @@ export function AboutClosing() {
         <Reveal delay={0.1}>
           <div className="mt-24 border-t border-black/10 pt-6">
             <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
-              <p className="text-[8px] uppercase tracking-[0.28em] text-black/30">
+              <p className="text-[14px] uppercase tracking-[0.28em] text-black/80">
                 Driven by Integrity · Powered by Excellence
               </p>
 
-              <p className="text-[8px] uppercase tracking-[0.28em] text-black/30">
+              <p className="text-[14px] uppercase tracking-[0.28em] text-black/80">
                 Kano · Nigeria
               </p>
             </div>

@@ -6,7 +6,7 @@ const navigation = [
   { label: "Home", href: "/" },
   { label: "Current Stock", href: "/vehicles" },
   { label: "Services", href: "/#services" },
-  { label: "About Us", href: "/#about" },
+  { label: "About Us", href: "/about" },
 ];
 
 function cleanPhone(value: string) {
@@ -131,7 +131,7 @@ export async function SiteFooter() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-2 pt-2 text-[8px] font-semibold uppercase tracking-[0.22em] text-white"
+                className="group inline-flex items-center gap-2 pt-2 text-[12px] font-semibold uppercase tracking-[0.22em] text-white"
               >
                 WhatsApp
                 <ArrowUpRight
@@ -146,11 +146,11 @@ export async function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[8px] uppercase tracking-[0.2em] text-white/30">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
             © {new Date().getFullYear()} {businessName}. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-4 text-[8px] font-medium uppercase tracking-[0.2em] text-white/30">
+          <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
             <span>Kano, Nigeria</span>
 
             <span className="h-1 w-1 rounded-full bg-white/20" />
