@@ -72,13 +72,29 @@ export default function NewVehiclePage() {
     }));
   }
 
-  function createSlug() {
-    return `${form.year}-${form.brand}-${form.model}`
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-  }
+  
+function createSlug() {
+  const brand = form.brand.trim();
+  const escapedBrand = brand.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    "\\$&"
+  );
+
+  const model = form.model
+    .trim()
+    .replace(
+      new RegExp(`^${escapedBrand}\\s+`, "i"),
+      ""
+    );
+
+  return `${form.year}-${brand}-${model}`
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 
   async function handleSubmit(
     event: FormEvent<HTMLFormElement>

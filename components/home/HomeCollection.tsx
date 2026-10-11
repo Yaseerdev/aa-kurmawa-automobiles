@@ -131,11 +131,23 @@ function CollectionVehicle({
 }
 
 export async function HomeCollection() {
+  
   const vehicles = await getPublishedVehicles();
 
-  const featuredVehicles = vehicles
-    .filter((vehicle) => vehicle.featured)
-    .slice(0, 4);
+ const featuredVehicles = vehicles
+  .filter((vehicle) => vehicle.featured)
+  .sort((a, b) => {
+    const aUpdated = a.updatedAt
+      ? new Date(a.updatedAt).getTime()
+      : 0;
+
+    const bUpdated = b.updatedAt
+      ? new Date(b.updatedAt).getTime()
+      : 0;
+
+    return bUpdated - aUpdated;
+  })
+  .slice(0, 4);
 
   const collection =
     featuredVehicles.length > 0

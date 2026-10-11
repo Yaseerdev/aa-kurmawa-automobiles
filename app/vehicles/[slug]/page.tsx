@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -23,7 +24,68 @@ import {
   getVehicleStatusMessage,
 } from "@/lib/vehicle-status";
 
-type PageProps = {
+
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://aakurmawa.com"
+).replace(/\/$/, "");
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const vehicle = await getPublishedVehicleBySlug(slug);
+
+  if (!vehicle) {
+    return {
+      title: "Vehicle Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const model = vehicle.model
+  .toLowerCase()
+  .startsWith(vehicle.brand.toLowerCase())
+  ? vehicle.model
+  : `${vehicle.brand} ${vehicle.model}`;
+
+const vehicleName = `${vehicle.year} ${model}`;
+  const title = `${vehicleName} for Sale in Kano`;
+  const description =
+    `Explore the ${vehicleName} at AA Kurmawa Automobiles in Kano, Nigeria. ` +
+    `View vehicle details, specifications and availability, or arrange an inspection.`;
+
+  const image = vehicle.images?.[0] || vehicle.image;
+  const canonicalUrl = `${siteUrl}/vehicles/${vehicle.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "website",
+      url: canonicalUrl,
+      siteName: "AA Kurmawa Automobiles",
+      title,
+      description,
+      images: image
+        ? [{ url: image, alt: vehicleName }]
+        : [],
+    },
+    twitter: {
+      card: image ? "summary_large_image" : "summary",
+      title,
+      description,
+      images: image ? [image] : [],
+    },
+  };
+}
+
+
+type PageProps = { 
   params: Promise<{
     slug: string;
   }>;
@@ -53,7 +115,13 @@ export default async function VehiclePage({
     vehicle.status
   );
 
-  const vehicleName = `${vehicle.year} ${vehicle.brand} ${vehicle.model}`;
+  const model = vehicle.model
+  .toLowerCase()
+  .startsWith(vehicle.brand.toLowerCase())
+  ? vehicle.model
+  : `${vehicle.brand} ${vehicle.model}`;
+
+  const vehicleName = `${vehicle.year} ${model}`;
 
   const whatsappMessage = encodeURIComponent(
     `Hello AA Kurmawa Automobiles, I'm interested in the ${vehicleName}. Please provide more information.`
@@ -262,7 +330,7 @@ export default async function VehiclePage({
               ================================================== */}
 
               {vehicle.description && (
-                <section className="border-b border-black/10 py-16 md:py-24">
+                <section className="border-b border-black/10 py-12 md:py-24">
 
                   <div className="grid gap-10 md:grid-cols-[0.45fr_1.55fr] md:gap-16">
 
@@ -279,7 +347,7 @@ export default async function VehiclePage({
                         the right reasons.
                       </h2>
 
-                      <p className="mt-8 max-w-2xl text-sm leading-8 text-black/50 md:text-base">
+                      <p className="mt-6 max-w-2xl text-sm leading-8 text-black/50 md:mt-8 md:text-base">
                         {vehicle.description}
                       </p>
                     </div>
@@ -294,7 +362,7 @@ export default async function VehiclePage({
                   SPECIFICATION
               ================================================== */}
 
-              <section className="py-16 md:py-24">
+              <section className="py-12 md:py-24">
 
                 <div className="grid gap-10 md:grid-cols-[0.45fr_1.55fr] md:gap-16">
 

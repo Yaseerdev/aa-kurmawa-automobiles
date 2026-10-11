@@ -16,7 +16,7 @@ export function Navbar() {
   const navItems = [
     {
       label: "Vehicles",
-      href: sectionHref("collection"),
+      href: "/vehicles",
     },
     {
       label: "Services",

@@ -117,7 +117,9 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
 
   return (
     <>
-      <section className="bg-white px-5 py-20 md:px-10 md:py-28">
+     
+      <section className="bg-white px-5 py-12 md:px-10 md:py-28">
+ 
         <div className="mx-auto max-w-[1300px]">
 
           {/* Section heading */}
@@ -296,20 +298,6 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
             {String(galleryImages.length).padStart(2, "0")}
           </div>
 
-          {/* Previous */}
-          {galleryImages.length > 1 && (
-            <button
-              type="button"
-              onClick={showPrevious}
-              aria-label="Previous image"
-              className="absolute left-4 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white text-black transition hover:bg-black hover:text-white md:left-8"
-            >
-              <ChevronLeft
-                size={20}
-                strokeWidth={1.2}
-              />
-            </button>
-          )}
 
           {/* Image */}
           <div className="relative h-full w-full max-w-[1500px]">
@@ -325,25 +313,16 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
             />
           </div>
 
-          {/* Next */}
-          {galleryImages.length > 1 && (
-            <button
-              type="button"
-              onClick={showNext}
-              aria-label="Next image"
-              className="absolute right-4 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white text-black transition hover:bg-black hover:text-white md:right-8"
-            >
-              <ChevronRight
-                size={20}
-                strokeWidth={1.2}
-              />
-            </button>
-          )}
+              {/* Swipe hint */}
+              {galleryImages.length > 1 && (
+                <div className="absolute bottom-7 left-1/2 z-30 flex -translate-x-1/2 items-center gap-3 whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.2em] text-white/45">
+                  <span aria-hidden="true">←</span>
+                  <span>Swipe to explore</span>
+                  <span aria-hidden="true">→</span>
+                </div>
+              )}
 
-          {/* Bottom hint */}
-          <p className="absolute bottom-5 left-1/2 z-30 hidden -translate-x-1/2 text-[8px] font-medium uppercase tracking-[0.2em] text-white/35 sm:block">
-            Use ← → to navigate · Esc to close
-          </p>
+
         </div>
       )}
     </>
