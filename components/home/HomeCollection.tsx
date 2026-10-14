@@ -6,11 +6,16 @@ import { getPublishedVehicles } from "@/lib/queries/vehicles";
 import type { Vehicle } from "@/lib/vehicle-types";
 import { Reveal } from "@/components/Reveal";
 
+
+  
 function VehicleImage({ vehicle }: { vehicle: Vehicle }) {
+  const fallback =
+    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=90";
+
   const image =
     vehicle.images?.[0] ||
     vehicle.image ||
-    "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=90";
+    fallback;
 
   return (
     <Image
@@ -23,6 +28,8 @@ function VehicleImage({ vehicle }: { vehicle: Vehicle }) {
     />
   );
 }
+
+
 
 function getVehicleName(vehicle: Vehicle) {
   const brand = vehicle.brand.trim();
@@ -164,7 +171,7 @@ export async function HomeCollection() {
         <Reveal>
           <div className="border-t border-black/15 pt-5">
             <div className="flex items-center justify-between">
-              <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-black/45">
+              <p className="text-[9px] font-medium uppercase tracking-[0.3em] text-black/70">
                 02 — The Collection
               </p>
 
@@ -188,7 +195,7 @@ export async function HomeCollection() {
         <div className="mt-20 grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:gap-24">
           <Reveal>
             <div>
-              <p className="mb-7 text-[9px] font-medium uppercase tracking-[0.3em] text-black/45">
+              <p className="mb-7 text-[9px] font-medium uppercase tracking-[0.3em] text-black/70">
                 Current selection
               </p>
 

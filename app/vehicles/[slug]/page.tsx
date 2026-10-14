@@ -801,6 +801,7 @@ export default async function VehiclePage({
 }
 
 
+
 /* =============================================================
    QUICK SPEC
 ============================================================= */
@@ -813,17 +814,19 @@ function QuickSpec({
   value: string;
 }) {
   return (
-    <div className="border-r border-black/10 px-4 py-6 last:border-r-0 sm:px-6 md:py-7">
-      <p className="text-[7px] font-medium uppercase tracking-[0.2em] text-black/35">
+    <div className="border-r border-black/10 px-3 py-4 last:border-r-0 sm:px-6 sm:py-6 md:py-7">
+      <p className="text-[7px] font-medium uppercase tracking-[0.16em] text-black/35 sm:tracking-[0.2em]">
         {label}
       </p>
 
-      <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.03em] text-black/75 md:text-xs">
+      <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.02em] text-black/75 sm:mt-3 md:text-xs">
         {value}
       </p>
     </div>
   );
 }
+
+
 
 
 /* =============================================================
@@ -841,15 +844,15 @@ function DetailRow({
 }) {
   return (
     <div
-      className={`grid grid-cols-[0.8fr_1.2fr] gap-6 py-5 ${
+      className={`grid grid-cols-[0.8fr_1.2fr] gap-4 py-4 sm:gap-6 sm:py-5 ${
         !last ? "border-b border-black/10" : ""
       }`}
     >
-      <p className="text-[8px] font-medium uppercase tracking-[0.2em] text-black/35">
+      <p className="text-[8px] font-medium uppercase tracking-[0.16em] text-black/35 sm:tracking-[0.2em]">
         {label}
       </p>
 
-      <p className="text-sm font-medium text-black/80">
+      <p className="text-sm font-medium leading-6 text-black/80">
         {value}
       </p>
     </div>

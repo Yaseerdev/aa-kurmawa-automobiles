@@ -125,7 +125,7 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
           {/* Section heading */}
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
-              <p className="text-[9px] font-medium uppercase tracking-[0.24em] text-black/45">
+              <p className="text-[9px] font-medium uppercase tracking-[0.24em] text-black/75">
                 Vehicle gallery
               </p>
 

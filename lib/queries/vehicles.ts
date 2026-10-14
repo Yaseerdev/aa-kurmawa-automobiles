@@ -33,6 +33,7 @@ type DbVehicleImage = {
   alt_text: string | null;
   sort_order: number;
   is_primary: boolean;
+
 };
 
 function formatPrice(

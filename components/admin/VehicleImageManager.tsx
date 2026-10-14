@@ -14,6 +14,7 @@ import {
 
 import { createSupabaseBrowserClient } from "@/lib/supabase-browser";
 
+
 export type ManagedVehicleImage = {
   id: string;
   vehicle_id: string;
@@ -633,6 +634,7 @@ export function VehicleImageManager({
     setBusyId(null);
   }
 
+
   if (images.length === 0) {
     return (
       <div className="border border-dashed border-black/15 px-6 py-14 text-center">
@@ -927,6 +929,8 @@ export function VehicleImageManager({
                     : "Make primary"}
                 </button>
 
+                
+
                 {/* Delete */}
                 <button
                   type="button"
@@ -948,6 +952,7 @@ export function VehicleImageManager({
           );
         })}
       </div>
+
 
       {/* Feedback */}
       {message && (
