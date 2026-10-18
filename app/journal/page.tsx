@@ -5,7 +5,6 @@ import { ArrowUpRight } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
 import { getPublishedJournalPosts } from "@/lib/queries/journal";
-import { SiteFooter } from "@/components/SiteFooter";
 
 export const dynamic = "force-dynamic";
 
@@ -143,8 +142,6 @@ export default async function JournalPage() {
           </div>
         </section>
       </main>
-
-      <SiteFooter />
     </>
   );
 }

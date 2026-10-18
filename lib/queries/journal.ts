@@ -36,7 +36,7 @@ export async function getPublishedJournalPosts(
     `)
     .eq("published", true)
     .order("featured", { ascending: false })
-    .order("published_at", { ascending: false })
+    .order("published_at", { ascending: false }) 
     .order("created_at", { ascending: false });
 
   if (limit) {

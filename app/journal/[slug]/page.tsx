@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import { SiteFooter } from "@/components/SiteFooter";
 import {
   getPublishedJournalPostBySlug,
   getPublishedJournalPosts,
@@ -206,8 +205,6 @@ export default async function JournalDetailPage({
           </div>
         </section>
       </main>
-
-      <SiteFooter />
     </>
   );
 }

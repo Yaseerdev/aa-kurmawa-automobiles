@@ -12,7 +12,6 @@ import { VehicleCard } from "@/components/VehicleCard";
 import AppointmentForm from "@/components/AppointmentForm";
 import { VehicleGallery } from "@/components/VehicleGallery";
 import { ExperienceMarquee } from "@/components/ExperienceMarquee";
-import { SiteFooter } from "@/components/SiteFooter";
 
 import {
   getPublishedVehicleBySlug,
@@ -142,7 +141,7 @@ export default async function VehiclePage({
 
             <Link
               href="/vehicles"
-              className="group flex items-center gap-3 text-[9px] font-medium uppercase tracking-[0.2em] text-black/60 transition-colors hover:text-black"
+              className="group flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-black"
             >
               <ArrowLeft
                 size={14}
@@ -156,21 +155,21 @@ export default async function VehiclePage({
             <div className="hidden items-center gap-8 md:flex">
               <Link
                 href="/"
-                className="text-[8px] uppercase tracking-[0.2em] text-black/45 transition-colors hover:text-black"
+                className="text-[9px] uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-black"
               >
                 Home
               </Link>
 
               <Link
                 href="/vehicles"
-                className="text-[8px] uppercase tracking-[0.2em] text-black/45 transition-colors hover:text-black"
+                className="text-[9px] uppercase tracking-[0.2em] text-black/70 transition-colors hover:text-black"
               >
                 Current stock
               </Link>
 
-              <span className="h-3 w-px bg-black/15" />
+              <span className="h-3 w-px bg-black/30" />
 
-              <span className="text-[8px] uppercase tracking-[0.2em] text-black/35">
+              <span className="text-[9px] uppercase tracking-[0.2em] text-black/70  hover:text-black">
                 AA Kurmawa Automobiles
               </span>
             </div>
@@ -199,7 +198,7 @@ export default async function VehiclePage({
           <div className="flex flex-wrap items-center gap-2 text-[8px] uppercase tracking-[0.18em] text-black/35">
             <Link
               href="/"
-              className="transition-colors hover:text-black"
+              className="text-[9px] transition-colors hover:text-black"
             >
               Home
             </Link>
@@ -208,14 +207,14 @@ export default async function VehiclePage({
 
             <Link
               href="/vehicles"
-              className="transition-colors hover:text-black"
+              className="text-[9px] transition-colors hover:text-black"
             >
               Collection
             </Link>
 
             <span>/</span>
 
-            <span className="max-w-[220px] truncate text-black/55">
+            <span className="max-w-[220px] truncate text-black/60  hover:text-black">
               {vehicleName}
             </span>
           </div>
@@ -263,9 +262,9 @@ export default async function VehiclePage({
                   {/* VEHICLE NAME */}
                   <div className="min-w-0">
                     <div className="flex items-center gap-3">
-                      <span className="h-px w-8 shrink-0 bg-black/25" />
+                      <span className="h-px w-8 shrink-0 bg-black/60" />
 
-                      <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/45">
+                      <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/80">
                         {vehicle.brand}
                       </p>
                     </div>
@@ -275,20 +274,20 @@ export default async function VehiclePage({
                     </h1>
 
                     <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-                      <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-black/50">
+                      <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-black/80">
                         {vehicle.year}
                       </span>
 
-                      <span className="h-3 w-px bg-black/15" />
+                      <span className="h-3 w-px bg-black/60" />
 
                       <span className="flex items-center gap-2 text-[8px] font-medium uppercase tracking-[0.2em] text-black/60">
                         <span
                           className={`h-1.5 w-1.5 rounded-full ${
                             vehicle.status === "AVAILABLE"
-                              ? "bg-emerald-700"
+                              ? "bg-emerald-500"
                               : vehicle.status === "RESERVED"
-                                ? "bg-amber-600"
-                                : "bg-black/30"
+                                ? "bg-amber-500"
+                                : "bg-black/80"
                           }`}
                         />
 
@@ -299,7 +298,7 @@ export default async function VehiclePage({
 
                   {/* ASKING PRICE */}
                   <div className="border-t border-black/15 pt-5 lg:min-w-[220px] lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:min-w-[250px] xl:pl-10">
-                    <p className="text-[8px] font-medium uppercase tracking-[0.25em] text-black/40">
+                    <p className="text-[8px] font-medium uppercase tracking-[0.25em] text-black/80">
                       Asking price
                     </p>
 
@@ -307,7 +306,7 @@ export default async function VehiclePage({
                       {vehicle.price}
                     </p>
 
-                    <p className="mt-3 text-[8px] uppercase tracking-[0.16em] text-black/35">
+                    <p className="mt-3 text-[8px] uppercase tracking-[0.16em] text-black/80">
                       Subject to availability
                     </p>
                   </div>
@@ -335,7 +334,7 @@ export default async function VehiclePage({
                   <div className="grid gap-10 md:grid-cols-[0.45fr_1.55fr] md:gap-16">
 
                     <div>
-                      <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/35">
+                      <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/80">
                         01 — The automobile
                       </p>
                     </div>
@@ -367,7 +366,7 @@ export default async function VehiclePage({
                 <div className="grid gap-10 md:grid-cols-[0.45fr_1.55fr] md:gap-16">
 
                   <div>
-                    <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/35">
+                    <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/80">
                       02 — Specification
                     </p>
 
@@ -456,18 +455,18 @@ export default async function VehiclePage({
                   <span
                     className={`h-1.5 w-1.5 rounded-full ${
                       vehicle.status === "AVAILABLE"
-                        ? "bg-black"
-                        : "bg-black/25"
+                        ? "bg-green-400"
+                        : "bg-black/80"
                     }`}
                   />
 
-                  <p className="text-[8px] font-medium uppercase tracking-[0.22em]">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.22em]">
                     {statusLabel}
                   </p>
 
                 </div>
 
-                <p className="mt-3 max-w-2xl text-xs leading-6 text-black/45">
+                <p className="mt-3 max-w-2xl text-xs leading-6 text-black/60">
                   {statusMessage}
                 </p>
 
@@ -631,7 +630,7 @@ export default async function VehiclePage({
               <div className="grid gap-10 md:grid-cols-[0.5fr_1.5fr] md:gap-20">
 
                 <div>
-                  <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/35">
+                  <p className="text-[8px] font-medium uppercase tracking-[0.3em] text-black/80">
                     04 — Continue exploring
                   </p>
                 </div>
@@ -643,7 +642,7 @@ export default async function VehiclePage({
                       Explore more.
                     </h2>
 
-                    <p className="mt-6 max-w-lg text-sm leading-7 text-black/45">
+                    <p className="mt-6 max-w-lg text-sm leading-7 text-black/50">
                       Discover other vehicles currently available
                       through AA Kurmawa Automobiles.
                     </p>
@@ -651,7 +650,7 @@ export default async function VehiclePage({
 
                   <Link
                     href="/vehicles"
-                    className="group hidden shrink-0 items-center gap-3 border-b border-black/15 pb-2 text-[8px] font-medium uppercase tracking-[0.2em] transition-colors hover:border-black sm:flex"
+                    className="group hidden shrink-0 items-center gap-3 border-b border-black/15 pb-2 text-[10px] font-medium uppercase tracking-[0.2em] transition-colors hover:border-black sm:flex"
                   >
                     View collection
 
@@ -794,8 +793,6 @@ export default async function VehiclePage({
         </section>
 
       </main>
-
-      <SiteFooter />
     </>
   );
 }
