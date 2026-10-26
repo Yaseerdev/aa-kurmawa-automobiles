@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 import { supabase } from "@/lib/supabase";
 
+import { enquiryRateLimit } from "@/lib/rate-limit";
+
 function isValidUuid(value: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
     value
@@ -14,6 +16,36 @@ function isValidEmail(value: string) {
 
 export async function POST(request: Request) {
   try {
+
+
+        // Rate-limit public enquiry submissions by client IP.
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    const ip = forwardedFor?.split(",")[0]?.trim();
+
+    if (!ip) {
+      return NextResponse.json(
+        { error: "Unable to process your request. Please try again." },
+        { status: 503 }
+      );
+    }
+
+    const { success, reset } = await enquiryRateLimit.limit(ip);
+
+    if (!success) {
+      const retryAfter = Math.max(
+        1,
+        Math.ceil((reset - Date.now()) / 1000)
+      );
+
+      return NextResponse.json(
+        { error: "Too many enquiries. Please try again later." },
+        {
+          status: 429,
+          headers: { "Retry-After": String(retryAfter) },
+        }
+      );
+    }
+
     let body: unknown;
 
     try {
