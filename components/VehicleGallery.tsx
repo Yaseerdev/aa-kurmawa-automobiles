@@ -151,15 +151,13 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
               className="absolute inset-0 z-10 cursor-zoom-in"
             />
 
-            <Image
-              key={activeImage}
-              src={activeImage}
-              alt={`${vehicleName} — image ${activeIndex + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 1300px"
-              unoptimized
-              className="object-cover transition duration-700 ease-out group-hover:scale-[1.012]"
-            />
+           <Image
+            src={activeImage}
+            alt={`${vehicleName} — image ${activeIndex + 1}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 1300px"
+            className="object-cover transition duration-700 ease-out group-hover:scale-[1.012]"
+          />
 
             {/* Very subtle image protection — no dark overlay */}
             <div className="pointer-events-none absolute inset-0 bg-black/[0.02]" />
