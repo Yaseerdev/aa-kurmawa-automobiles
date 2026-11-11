@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { SiteLoader } from "@/components/SiteLoader";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "AA Kurmawa Automobiles",
@@ -19,6 +20,11 @@ export default function RootLayout({
       <body>
         <SiteLoader />
         {children}
+        <body>
+        {children}
+        <Analytics />
+      </body>
+
       </body>
     </html>
   );
