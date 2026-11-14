@@ -76,7 +76,7 @@ useEffect(() => {
 
           <Reveal delay={0.12}>
             <div>
-             <div className="group relative block aspect-[4/5] overflow-hidden bg-[#b2b6b1]">
+             <div className="group relative ml-auto block aspect-[4/5] w-full max-w-[460px] overflow-hidden bg-[#b2b6b1]">
 {chairmanImage && !imageFailed ? (
     <>
       <Image

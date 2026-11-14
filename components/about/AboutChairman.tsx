@@ -60,7 +60,7 @@ export function AboutChairman({
           <div className="grid gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-24">
             {/* Portrait */}
             <Reveal>
-              <div className="group relative overflow-hidden bg-[#0a0a0a]">
+              <div className="group relative w-full max-w-[460px] overflow-hidden bg-[#0a0a0a]">
                 <div className="relative aspect-[4/5]">
                   {chairmanImage ? (
                     <Image
