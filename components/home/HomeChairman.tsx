@@ -84,7 +84,6 @@ useEffect(() => {
         alt={`${chairmanName}, Chairman of AA Kurmawa Automobiles`}
         fill
         sizes="(max-width: 1024px) 100vw, 55vw"
-        unoptimized
         onError={() => setImageFailed(true)}
         className="object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
       />
