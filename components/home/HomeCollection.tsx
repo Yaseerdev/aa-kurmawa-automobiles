@@ -23,7 +23,6 @@ function VehicleImage({ vehicle }: { vehicle: Vehicle }) {
       alt={`${vehicle.brand} ${vehicle.model}`}
       fill
       sizes="(max-width: 768px) 100vw, 70vw"
-      unoptimized
       className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.025]"
     />
   );

@@ -118,7 +118,6 @@ export default async function JournalDetailPage({
                     alt={post.title}
                     fill
                     priority
-                    unoptimized
                     sizes="100vw"
                     className="object-cover"
                   />

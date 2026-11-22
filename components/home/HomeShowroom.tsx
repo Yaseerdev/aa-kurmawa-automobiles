@@ -111,7 +111,6 @@ useEffect(() => {
           alt={`${businessName} showroom`}
           fill
           sizes="(max-width: 768px) 100vw, 1600px"
-          unoptimized
           onError={() => setImageFailed(true)}
           className="object-cover transition-transform duration-1000 hover:scale-[1.015]"
         />

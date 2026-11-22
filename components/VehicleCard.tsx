@@ -28,7 +28,6 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
             alt={`${vehicle.year} ${vehicle.brand} ${vehicle.model}`}
             fill
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 40vw"
-            unoptimized
             className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(.22,1,.36,1)] motion-reduce:transition-none group-hover:scale-[1.04]"
           />
         ) : (

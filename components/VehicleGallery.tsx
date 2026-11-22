@@ -239,7 +239,6 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
                       alt={`${vehicleName} thumbnail ${index + 1}`}
                       fill
                       sizes="(max-width: 640px) 25vw, (max-width: 768px) 20vw, 180px"
-                      unoptimized
                       className="object-cover transition duration-500 group-hover:scale-[1.035]"
                     />
 
@@ -305,7 +304,6 @@ function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
               alt={`${vehicleName} — image ${activeIndex + 1}`}
               fill
               sizes="100vw"
-              unoptimized
               className="object-contain"
               priority
             />
