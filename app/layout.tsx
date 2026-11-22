@@ -20,11 +20,7 @@ export default function RootLayout({
       <body>
         <SiteLoader />
         {children}
-        <body>
-        {children}
         <Analytics />
-      </body>
-
       </body>
     </html>
   );
