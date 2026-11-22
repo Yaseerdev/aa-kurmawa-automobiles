@@ -69,7 +69,6 @@ export function HomeBeyondAutomotive() {
                   alt="Construction and real estate"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized
                   className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
                 />
 
@@ -124,7 +123,6 @@ export function HomeBeyondAutomotive() {
                   alt="General supply and agriculture"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized
                   className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
                 />
 
