@@ -89,7 +89,6 @@ export default async function JournalPage() {
                             src={post.cover_image}
                             alt={post.title}
                             fill
-                            unoptimized
                             sizes="(max-width: 768px) 100vw, 40vw"
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                           />
